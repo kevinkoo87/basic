@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+/* Zoom Control Design 변경  */
+.ol-zoom .ol-zoom-out {margin-top: 204px;}
+.ol-zoomslider {background-color: transparent;top: 3.5em;}
+.ol-zoom-curr{width: 100%;height: 21px;text-align: center;font-size: 15px;background-color: rgba(0,60,136,.3);color: white;border-radius: 5px;text-shadow: 1px 1px 4px rgb(0, 0, 0);font-weight: bold;}
+.ol-touch .ol-zoom .ol-zoom-out {margin-top: 212px;}
+.ol-touch .ol-zoomslider {top: 2.75em;}
+.ol-zoom-in, .ol-zoom-out {cursor: pointer;}
+.ol-zoom-in.ol-has-tooltip:hover [role=tooltip],.ol-zoom-in.ol-has-tooltip:focus [role=tooltip] {top: 3px;}
+.ol-zoom-out.ol-has-tooltip:hover [role=tooltip],.ol-zoom-out.ol-has-tooltip:focus [role=tooltip] {top: 232px;}
+.ol-zoomslider-thumb {width:25px !important;}
+.ol-scale-line {right: 10px;top: 120px;bottom: auto;left: auto;}
+.ol-rotate-reset {width:100px !important;height:100px !important;cursor: pointer;}
+.ol-attribution {bottom : 10px;}
+.layerListDiv {position: absolute;right: 10px;top: 145px;background: rgba(0, 60, 136, .3);border-radius: 4px;min-width: 100px;min-height: 20px;border: 3px solid rgba(255, 255, 255, .4);}
+.layerItem {color: white;font-size: 11px;padding-left: 5px;padding-right: 55px;width: calc(100% - 60px);padding-top: 2px;padding-bottom: 2px;border-top: 1px solid white;}
+.layerItem:first-child {border-top:0px;}
+.layerListDivTitle {color: white;text-align: center;font-size: 14px;font-weight: bold;}
+.layerZIndexButtonDiv {position:absolute;width: 100%;height:0px;}
+.layerZIndexButton {position: absolute;right: 8px;width: 15px;bottom : 0px;cursor: pointer;}
+.layerUp {right : 20px;}
+.layerView {right : 35px;}
+
+.tooltip {position: relative;background: rgba(0, 0, 0, 0.5);border-radius: 4px;color: white;padding: 4px 8px;opacity: 0.7;white-space: nowrap;}
+.tooltip-measure {opacity: 1;font-weight: bold;}
+.tooltip-static {background-color: #ffcc33;color: black;border: 1px solid white;}
+.tooltip-measure:before,.tooltip-static:before,.tooltip-feature:before {border-top: 6px solid rgba(0, 0, 0, 0.5);border-right: 6px solid transparent;border-left: 6px solid transparent;content: "";position: absolute;bottom: -6px;margin-left: -7px;left: 50%;}
+.tooltip-static:before {border-top-color: #ffcc33;}
+.ol-attribution img {position: relative; top: 5px;}
+
+
+.tooltip-feature {background-color: #0205FF;border: 1px solid white; font-size:11px;}
+.tooltip-feature:before {border-top-color: #0205FF;}

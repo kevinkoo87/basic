@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="mainDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="#{sysConfig['DB_MAIN_CLASS_NAME']}"/>
+		<property name="url" value="#{sysConfig['DB_MAIN_URL']}"/>
+		<property name="username" value="#{sysConfig['DB_MAIN_ID']}"/>
+		<property name="password" value="#{sysConfig['DB_MAIN_PW']}"/>
+		<property name="initialSize" value="3"/>
+		<property name="maxIdle" value="5"/>
+		<property name="maxActive" value="10"/>
+		<property name="poolPreparedStatements" value="true"/>
+	</bean>
+</beans>

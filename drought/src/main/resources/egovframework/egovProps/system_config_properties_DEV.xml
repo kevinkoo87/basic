@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd" >
+<properties>
+	<!-- 
+		※ 시스템 프로퍼티 : 시스템의 기본적인 프로퍼티 
+			- 도메인
+			- 개발 모드
+			- DataBase
+	
+	-->
+	<entry key="MODE">DEV</entry>
+
+	<!-- 업무 DB -->
+	<entry key="DB_MAIN_CLASS_NAME">org.postgresql.Driver</entry>
+	<entry key="DB_MAIN_URL">jdbc:postgresql://localhost:5432/sample</entry>
+	<entry key="DB_MAIN_ID">usr</entry>
+	<entry key="DB_MAIN_PW">usr00</entry>
+	
+	<entry key="GIS_SERVER">http://remote.enjoybt.co.kr:18080/geoserver</entry>
+	
+</properties>

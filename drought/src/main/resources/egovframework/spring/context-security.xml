@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<security:http pattern="/websocket/**" security="none" />
+
+    <beans:bean id="loginHandler" class="com.egov.drought.security.handler.LoginHandler" p:mainDAO-ref="mainDAO" p:loginMananger-ref="loginManager" />
+    <beans:bean id="loginManager" class="com.egov.drought.security.LoginManager" scope="singleton" p:mainDAO-ref="mainDAO"/>
+    
+    <beans:bean id="usernamePasswordAuthenticationFilter" class="com.egov.drought.security.CustomUserNamePassword">
+        <beans:property name="authenticationManager" ref="loginHandler" />
+        <beans:property name="authenticationFailureHandler" ref="loginHandler" />
+        <beans:property name="authenticationSuccessHandler" ref="loginHandler" />
+        <beans:property name="filterProcessesUrl" value="/login/loginProcess.do" />
+        <beans:property name="usernameParameter" value="userID" />
+    </beans:bean>
+    
+    <beans:bean id="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+    	<beans:constructor-arg name="loginFormUrl" value="/login/login.do" />
+    	<!-- <beans:property name="loginFormUrl"/> -->
+    </beans:bean>
+    
+	<security:http auto-config="false" use-expressions="true" entry-point-ref="loginUrlAuthenticationEntryPoint">
+        <security:intercept-url pattern="/resources/**" access="permitAll" />
+        <security:intercept-url pattern="/cmm/**" access="permitAll" />
+        <security:intercept-url pattern="/login/**" access="permitAll" />
+        <security:intercept-url pattern="/mng/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" />
+        <security:intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER')" />
+		<security:session-management>
+			<security:concurrency-control max-sessions="100"/>
+		</security:session-management>
+		<security:custom-filter ref="usernamePasswordAuthenticationFilter" position="FORM_LOGIN_FILTER"/>
+	</security:http>
+</beans:beans>

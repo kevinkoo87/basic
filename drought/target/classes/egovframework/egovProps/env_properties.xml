@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd" >
+<properties>
+	<comment>
+		개발/운영 설정
+		개발 : DEV 
+		운영 : PRODUCTION
+	</comment>
+	<entry key="ENVIRONMENT">DEV</entry>
+</properties>
